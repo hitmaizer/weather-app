@@ -2,11 +2,12 @@ import React from 'react';
 import { MyLocation } from '@styled-icons/fluentui-system-filled/MyLocation'
 import { LocationPin } from '@styled-icons/entypo/LocationPin'
 
-export default function Sidebar() {
+
+export default function Sidebar(props) {
     return (
         <div className="sidebar__wrapper flex-col">
             <div className="sidebar__top flex-row">
-                <button className="top__searchplaces sidebar__btn">
+                <button className="top__searchplaces sidebar__btn" onClick={props.toggleDrawer(true)}>
                     <span className="search__text">Search for places</span>
                 </button>
                 <button className="top__mylocation sidebar__btn">
