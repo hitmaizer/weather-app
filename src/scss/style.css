@@ -168,13 +168,13 @@
   width: 100%;
   background-color: #100E1D;
   font-family: "Raleway", sans-serif;
-  padding: 64px;
+  padding: 32px;
 }
 
 .toggle__type {
   place-content: flex-end;
   gap: 12px;
-  margin-bottom: 64px;
+  margin-bottom: 32px;
 }
 
 .toggle__btn {
@@ -337,4 +337,69 @@
 
 .visibility__wrapper {
   gap: 16px;
+}
+
+.drawer__wrapper {
+  min-height: 100vh;
+  min-width: 459px;
+  background-color: #1E213A;
+  padding: 32px;
+}
+
+.search__container {
+  gap: 12px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.search__input {
+  border: solid 1px #E7E7EB;
+  width: 268px;
+  background-color: transparent;
+  height: 48px;
+}
+
+.search__input::-webkit-input-placeholder {
+  color: #616475;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-indent: 48px;
+}
+
+.search__input:-ms-input-placeholder {
+  color: #616475;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-indent: 48px;
+}
+
+.search__input::-ms-input-placeholder {
+  color: #616475;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-indent: 48px;
+}
+
+.search__input::placeholder {
+  color: #616475;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-indent: 48px;
+}
+
+.search__btn {
+  padding: 16px 24px;
+  border: none;
+  background-color: #3C47E9;
+  color: #E7E7EB;
+  cursor: pointer;
+}
+
+.search__results {
+  width: 367px;
 }
