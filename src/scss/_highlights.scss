@@ -1,0 +1,14 @@
+.highlights__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 48px;
+}
+
+.highlights__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: $offGray;
+    margin-bottom: 32px;
+    margin-top: 72px;
+}
