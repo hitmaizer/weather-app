@@ -1,0 +1,35 @@
+.sidebar__wrapper {
+    background-color: $darkBlue;
+    min-height: 100vh;
+    font-family: $raleway;
+    padding: 48px;
+    min-width: 459px;
+}
+
+.sidebar__top {
+    justify-content: space-between;
+    
+}
+
+.sidebar__btn {
+    background-color: $gray;
+    color: $offGray;
+    border: none;
+    padding: 8px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+.top__searchplaces {
+    padding: 12px 16px;
+    span {
+        font-family: $raleway;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+    }
+}
+
+.top__mylocation {
+    border-radius: 50%;
+}
