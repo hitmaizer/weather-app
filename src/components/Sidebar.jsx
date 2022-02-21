@@ -18,14 +18,16 @@ export default function Sidebar() {
         <img src="images/Shower.png" alt="" className="sidebar__weatherimg" />
         <h1 className="sidebar__weathernumber">15 <span className="weathernumber--type">ºC</span></h1>
         <h3 className="sidebar__weathertype">Shower</h3>
-        <div className="sidebar__details flex-row">
-            <p className="details__day">Today</p>
-            <span>•</span>
-            <p className="details__date">Fri, 5 Jun</p>
-        </div>
-        <div className="sidebar__location flex-row">
-            <LocationPin size="24px" />
-            <p className="location__name">Helsinki</p>
+        <div className="sidebar__details--container flex-col">
+            <div className="sidebar__details flex-row">
+                <p className="details__day">Today</p>
+                <span>•</span>
+                <p className="details__date">Fri, 5 Jun</p>
+            </div>
+            <div className="sidebar__location flex-row">
+                <LocationPin size="24px" />
+                <p className="location__name">Helsinki</p>
+            </div>
         </div>
         </div>
     )
