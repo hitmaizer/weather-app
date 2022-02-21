@@ -3,6 +3,7 @@
     min-width: 459px;
     background-color: $darkBlue;
     padding: 32px;
+    font-family: $raleway;
 }
 
 .search__container {
@@ -34,4 +35,28 @@
 
 .search__results {
     width: 367px;
+    gap: 8px;
+    margin-top: 32px;
+    
+}
+
+.result__item {
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 12px 24px;
+    &:hover {
+        border: solid 1px $offWhite;
+    }
+}
+
+.result__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: $offGray;
+}
+
+.result__icon {
+    color: $offGray;
 }

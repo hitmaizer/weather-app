@@ -344,6 +344,7 @@
   min-width: 459px;
   background-color: #1E213A;
   padding: 32px;
+  font-family: "Raleway", sans-serif;
 }
 
 .search__container {
@@ -402,4 +403,32 @@
 
 .search__results {
   width: 367px;
+  gap: 8px;
+  margin-top: 32px;
+}
+
+.result__item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+  padding: 12px 24px;
+}
+
+.result__item:hover {
+  border: solid 1px #616475;
+}
+
+.result__text {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #E7E7EB;
+}
+
+.result__icon {
+  color: #E7E7EB;
 }
