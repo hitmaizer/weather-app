@@ -1,13 +1,44 @@
 .sidebar__wrapper {
+    position: relative;
     background-color: $darkBlue;
     min-height: 100vh;
     font-family: $raleway;
-    padding: 48px;
+    padding: 16px;
     min-width: 459px;
+    gap: 87px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url('http://localhost:3000//images/Cloud-background.png');
+        background-position: top center;
+        background-repeat: no-repeat;
+        opacity: 0.25;
+        z-index: 0;
+        animation: animate 4s infinite;
+        animation-timing-function: ease-out;
+
+        @keyframes animate {
+            0% {
+                background-position-x: 0px;
+            }
+            50% {
+                background-position-x: 100px;
+            }
+            100% {
+                background-position-x: 0px;
+            }
+        }
+    }
 }
 
 .sidebar__top {
     justify-content: space-between;
+    z-index: 1;
     
 }
 
@@ -32,4 +63,56 @@
 
 .top__mylocation {
     border-radius: 50%;
+}
+
+.sidebar__weatherimg {
+    max-width: 100%;
+    width: 200px;
+    margin: 0 auto;
+    z-index: 2;
+}
+
+.sidebar__weathernumber {
+    font-weight: 500;
+    font-size: 144px;
+    line-height: 169px;
+    color: $offGray;
+    text-align: center;
+}
+
+.weathernumber--type {
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 56px;
+    color: $darkGray;
+}
+
+.sidebar__weathertype {
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px;
+    color: $darkGray;
+    text-align: center;
+}
+
+.sidebar__details--container{
+    gap: 24px;
+}
+
+.sidebar__details {
+    color: $mediumGray;
+    gap: 16px;
+    place-content: center;
+    p, span {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
+.sidebar__location {
+    color: $mediumGray;
+    align-items: center;
+    gap: 8px;
+    place-content: center;
 }
