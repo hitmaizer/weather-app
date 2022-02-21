@@ -1,0 +1,37 @@
+.drawer__wrapper {
+    min-height: 100vh;
+    min-width: 459px;
+    background-color: $darkBlue;
+    padding: 32px;
+}
+
+.search__container {
+    gap: 12px;
+    align-items: center;
+}
+
+.search__input {
+    border: solid 1px $offGray;
+    width: 268px;
+    background-color: transparent;
+    height: 48px;
+    &::placeholder {
+        color: $offWhite;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 19px;
+        text-indent: 48px;
+    }
+}
+
+.search__btn {
+    padding: 16px 24px;
+    border: none;
+    background-color: $lightBlue;
+    color: $offGray;
+    cursor: pointer;
+}
+
+.search__results {
+    width: 367px;
+}
