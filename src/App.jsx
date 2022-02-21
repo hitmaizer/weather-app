@@ -2,15 +2,10 @@ import React from 'react'
 import { ThemeProvider } from "styled-components";
 import Main from './components/Main';
 import Sidebar from './components/Sidebar';
-import Theme from './theme/theme'
-import Box from '@mui/material/Box';
+import Theme from './theme/theme';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
+import DrawerContent from './components/DrawerContent';
+
 
 
 
@@ -23,7 +18,7 @@ export default function App() {
               return function (event) {
                   return setState(open)
               }
-          } 
+          }     
 
     return (
         <div className="page__wrapper flex-row">
@@ -33,7 +28,9 @@ export default function App() {
               anchor={'left'}
               open={state}
               onClose={toggleDrawer(false)}
-              />
+              >
+                  <DrawerContent />
+              </Drawer>
               <Main />
             </ThemeProvider>
         </div>
