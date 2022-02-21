@@ -56,6 +56,10 @@
 
 .progressbar__numbers {
     justify-content: space-between;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: $darkGray;
 }
 
 .humidity__progressbar {
@@ -71,4 +75,17 @@
     border-radius: 80px;
     width: 229px;
     height: 8px;
+}
+
+.wind__wrapper {
+    gap: 16px;
+}
+.humidity__wrapper {
+    gap: 16px;
+}
+.airpressure__wrapper {
+    gap: 16px;
+}
+.visibility__wrapper {
+    gap: 16px;
 }
