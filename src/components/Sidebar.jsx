@@ -6,10 +6,10 @@ export default function Sidebar() {
     return (
         <div className="sidebar__wrapper flex-col">
             <div className="sidebar__top flex-row">
-                <button className="top__searchplaces">
+                <button className="top__searchplaces sidebar__btn">
                     <span className="search__text">Search for places</span>
                 </button>
-                <button className="top__mylocation">
+                <button className="top__mylocation sidebar__btn">
                     <span className="mylocation__icon">
                         <MyLocation size="24px" />
                     </span>
