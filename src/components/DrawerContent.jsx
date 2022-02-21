@@ -12,15 +12,15 @@ export default function DrawerContent() {
             <div className="search__results flex-col">
                 <div className="result__item flex-row">
                     <p className="result__text">London</p>
-                    <ArrowIosForwardOutline size="8px" />
+                    <ArrowIosForwardOutline size="24px" className="result__icon" />
                 </div>
                 <div className="result__item flex-row">
                     <p className="result__text">London</p>
-                    <ArrowIosForwardOutline size="8px" />
+                    <ArrowIosForwardOutline size="24px" className="result__icon" />
                 </div>
                 <div className="result__item flex-row">
                     <p className="result__text">London</p>
-                    <ArrowIosForwardOutline size="8px" />
+                    <ArrowIosForwardOutline size="24px" className="result__icon" />
                 </div>
 
             </div>
