@@ -12,3 +12,62 @@
     margin-bottom: 32px;
     margin-top: 72px;
 }
+
+.highlight__card {
+    place-items: center;
+    padding: 32px;
+}
+
+.highlight__title {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
+    color: $offGray;
+}
+
+.highlight__type {
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+    color: $offGray;
+}
+
+.highlight__detail {
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 75px;
+    color: $offGray;
+}
+
+.highlights__main {
+    align-items: center;
+}
+
+.wind__direction {
+    align-items: center;
+    gap: 8px;
+    color: $offGray;
+}
+
+.humidity__progressbar {
+    gap: 4px;
+}
+
+.progressbar__numbers {
+    justify-content: space-between;
+}
+
+.humidity__progressbar {
+    color: $offGray;
+}
+
+.progressbar__type {
+    place-self: flex-end;
+}
+
+.progress__container {
+    background-color: white;
+    border-radius: 80px;
+    width: 229px;
+    height: 8px;
+}
