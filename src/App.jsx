@@ -11,6 +11,15 @@ export default function App() {
     const [state, setState] = React.useState(false)
     const [currentLocation, setCurrentLocation] = React.useState("")
 
+    const searchApi = {
+        base: "https://www.metaweather.com/api/location/search/?query=",
+        query: ""
+    }
+
+    React.useEffect(() => {
+
+    }, [])
+
     // url for api lisbon location "https://www.metaweather.com/api/location/742676/"
 
     //your first function
