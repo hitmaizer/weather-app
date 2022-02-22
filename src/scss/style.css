@@ -32,7 +32,7 @@
   font-family: "Raleway", sans-serif;
   padding: 16px;
   min-width: 459px;
-  gap: 87px;
+  gap: 48px;
 }
 
 .sidebar__wrapper::before {
