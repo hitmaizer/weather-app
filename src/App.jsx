@@ -11,6 +11,7 @@ import DrawerContent from './components/DrawerContent';
 
 export default function App() {
     const [state, setState] = React.useState(false)
+    const [currentLocation, setCurrentLocation] = React.useState("")
 
     //your first function
     function toggleDrawer(open) {
