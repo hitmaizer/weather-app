@@ -11,6 +11,8 @@ export default function App() {
     const [state, setState] = React.useState(false)
     const [currentLocation, setCurrentLocation] = React.useState("")
 
+    // url for api lisbon location "https://www.metaweather.com/api/location/742676/"
+
     //your first function
     function toggleDrawer(open) {
         //your secound function
