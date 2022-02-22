@@ -11,20 +11,55 @@ import axios from 'axios'
 export default function App() {
     const [state, setState] = React.useState(false)
     const [weatherData, setWeatherData] = React.useState()
-    const [currentLocation, setCurrentLocation] = React.useState({
-        lat: null,
-        long: null
-    })
-    
-
-    const searchApi = {
-        base: "https://www.metaweather.com/api/location/search/?query=",
-        query: ""
-    }
+    const [location, setLocation] = React.useState("lisbon")
+    const [currentLocation, setCurrentLocation] = React.useState([])
 
     React.useEffect(() => {
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                async function fetchData() {
+                    const request = await axios.get(
+                        "https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/search",
+                        {
+                            params: {
+                                lattlong: `${position.coords.latitude},${position.coords.longitude}`,
+                            },
+                        }
+                        )
+                        .then((response) => {
+                            setCurrentLocation(response.data[0])
+                            
+                        })
+                        .catch(function (error) {
+                            console.log("I am not running");
+                            
+                        });  
+                    return request                              
+                }
+                fetchData();                                
+            })
+        }
+
+        if(currentLocation.woeid) {
+            async function fetchData() {
+                const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${currentLocation.woeid}/`)
+                
+                .then((response) => {
+                    setWeatherData(response.data.consolidated_weather)
+                })
+                .catch(function (error) {
+                    console.log("I am not running");
+                })
+                
+                return request
+            }
+            fetchData()
+        } 
+
         
-    }, [currentLocation])
+    }, [currentLocation.woeid])
+
+    console.log(weatherData)
 
     // url for api lisbon location "https://www.metaweather.com/api/location/742676/"
 
@@ -50,36 +85,54 @@ export default function App() {
                 )
                 .then((response) => {
                     setCurrentLocation(response.data[0])
-                    //console.log(response)
+                    
                 })
                 .catch(function (error) {
                     console.log("I am not running");
                     
-                });
-                console.log(currentLocation)
+                });                                
             })
         }
+        getWeatherData()
     }
-
+    
     function getWeatherData() {
+        axios
+        .get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${currentLocation.woeid}/`)
+        
+        .then((response) => {
+            setWeatherData(response.data.consolidated_weather)
+        })
+        .catch(function (error) {
+            console.log("I am not running");
+        })
         
     }
+    
 
     return (
         <div className="page__wrapper flex-row">
             <ThemeProvider theme={Theme}>
-              <Sidebar 
-              toggleDrawer={toggleDrawer}
-              currentPosition={getCurrentPosition}
-              />
-              <Drawer 
-              anchor={'left'}
-              open={state}
-              onClose={toggleDrawer(false)}
-              >
-                  <DrawerContent />
-              </Drawer>
-              <Main />
+                {!weatherData && 
+                    <h1>Loading Data</h1>
+                }
+                {weatherData && <>                
+                    <Sidebar 
+                    toggleDrawer={toggleDrawer}
+                    currentPosition={getCurrentPosition}
+                    weatherData={weatherData}
+                    />
+                    <Drawer 
+                    anchor={'left'}
+                    open={state}
+                    onClose={toggleDrawer(false)}
+                    >
+                        <DrawerContent />
+                    </Drawer>
+                    <Main 
+                    weatherData={weatherData}
+                    />
+                </>}
             </ThemeProvider>
         </div>
     )
