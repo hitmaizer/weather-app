@@ -10,7 +10,7 @@ export default function Sidebar(props) {
                 <button className="top__searchplaces sidebar__btn" onClick={props.toggleDrawer(true)}>
                     <span className="search__text">Search for places</span>
                 </button>
-                <button className="top__mylocation sidebar__btn">
+                <button className="top__mylocation sidebar__btn" onClick={props.currentPosition}>
                     <span className="mylocation__icon">
                         <MyLocation size="24px" />
                     </span>
