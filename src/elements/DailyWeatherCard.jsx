@@ -8,8 +8,8 @@ export default function DailyWeatherCard(props) {
             <p className="daily__date">{props.details.applicable_date}</p>
             <img src="images/HeavyRain.png" alt="" className="daily__img" />
             <div className="daily__minmax flex-row">
-                <p className="minmax max">16ºC</p>
-                <p className="minmax min">11ºC</p>
+                <p className="minmax max">{Math.floor(props.details.max_temp)}ºC</p>
+                <p className="minmax min">{Math.floor(props.details.min_temp)}ºC</p>
             </div>
         </StyledCard>
     )
