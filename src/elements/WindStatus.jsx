@@ -2,17 +2,17 @@ import React from 'react';
 import StyledCard from './StyledCard'
 import { DiagonalArrowLeftDown } from 'styled-icons/evaicons-solid';
 
-export default function WindStatus() {
+export default function WindStatus(props) {
     return (
         <StyledCard className="wind__wrapper flex-col highlight__card">
             <h5 className="wind__title highlight__title">Wind Status</h5>
             <div className="highlights__main flex-row">
-                <h1 className="wind__number highlight__detail">7</h1>
+                <h1 className="wind__number highlight__detail">{Math.floor(props.weatherDetails.wind_speed)}</h1>
                 <h5 className="wind__type highlight__type">mph</h5>
             </div>
             <div className="wind__direction flex-row">
                 <DiagonalArrowLeftDown size="24px" />
-                <h5 className="direction__text">WSW</h5>
+                <h5 className="direction__text">{props.weatherDetails.wind_direction_compass}</h5>
             </div>
 
         </StyledCard>
