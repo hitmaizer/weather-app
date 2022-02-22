@@ -1,16 +1,25 @@
 import React from 'react';
 import StyledCard from './StyledCard'
-import ProgressBar from './StyledProgressBar'
+import styled from 'styled-components';
+
 
 
 export default function Humidity(props) {
+    
+    const ProgressBar = styled.div`
+    background-color: ${(props) => props.theme.colors.yellow};
+    width: ${props.weatherDetails.humidity}%;
+    height: 8px;
+    border-radius: 80px;
+    `;
+
 
 
     return (
         <StyledCard className="humidity__wrapper flex-col highlight__card">
             <h5 className="humidity__title highlight__title">Humidity</h5>
             <div className="highlights__main flex-row">
-                <h1 className="humidity__number highlight__detail">84</h1>
+                <h1 className="humidity__number highlight__detail">{props.weatherDetails.humidity}</h1>
                 <h5 className="humidity__type highlight__type">%</h5>
             </div>
             <div className="humidity__progressbar flex-col">
