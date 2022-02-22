@@ -16,6 +16,9 @@
     width: 268px;
     background-color: transparent;
     height: 48px;
+    text-indent: 48px;
+    color: $white;
+    position: relative;
     &::placeholder {
         color: $offWhite;
         font-weight: 500;
@@ -23,6 +26,12 @@
         line-height: 19px;
         text-indent: 48px;
     }
+}
+
+.search__icon {
+    color: $offWhite;
+    position: absolute;
+    left: 10%;
 }
 
 .search__btn {
@@ -60,3 +69,4 @@
 .result__icon {
     color: $offGray;
 }
+
