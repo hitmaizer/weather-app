@@ -1,12 +1,13 @@
 import React from 'react';
 import { ArrowIosForwardOutline } from '@styled-icons/evaicons-outline/ArrowIosForwardOutline'
-
+import { SearchOutline } from '@styled-icons/evaicons-outline/SearchOutline'
 
 export default function DrawerContent() {
     return (
         <div className="drawer__wrapper">
             <div className="search__container flex-row">
                 <input type="text" className="search__input" placeholder="search location" />
+                <SearchOutline size="24px" className="search__icon"/>
                 <button className="search__btn">Search</button>
             </div>
             <div className="search__results flex-col">
