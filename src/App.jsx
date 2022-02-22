@@ -21,10 +21,21 @@ export default function App() {
               }
           }     
 
+    function getCurrentPosition(){
+        if(navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                console.log(position)
+            })
+        }
+    }
+
     return (
         <div className="page__wrapper flex-row">
             <ThemeProvider theme={Theme}>
-              <Sidebar toggleDrawer={toggleDrawer}/>
+              <Sidebar 
+              toggleDrawer={toggleDrawer}
+              currentPosition={getCurrentPosition}
+              />
               <Drawer 
               anchor={'left'}
               open={state}
