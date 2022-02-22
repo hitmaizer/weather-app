@@ -7,8 +7,6 @@ import Drawer from '@mui/material/Drawer';
 import DrawerContent from './components/DrawerContent';
 
 
-
-
 export default function App() {
     const [state, setState] = React.useState(false)
     const [currentLocation, setCurrentLocation] = React.useState("")
@@ -25,8 +23,13 @@ export default function App() {
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
                 console.log(position)
+                setCurrentLocation({
+                    lat: position.coords.latitude,
+                    long: position.coords.longitude 
+                })
             })
         }
+        console.log(currentLocation)
     }
 
     return (
