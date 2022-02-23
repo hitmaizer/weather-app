@@ -490,13 +490,13 @@
 }
 
 .skeleton.thumbnail {
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
 }
 
 .skeleton.btn {
   width: 100px;
-  height: 50px;
+  height: 35px;
 }
 
 .skeleton__sidebartop {
@@ -511,4 +511,15 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.skeletonmain__topbtns {
+  width: 100%;
+  place-content: flex-end;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.skeleton__forecast {
+  margin-bottom: 72px;
 }
