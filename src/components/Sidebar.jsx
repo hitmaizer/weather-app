@@ -5,6 +5,14 @@ import { LocationPin } from '@styled-icons/entypo/LocationPin'
 
 
 export default function Sidebar(props) {
+    let today = new Date()
+
+    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Out", "Nov", "Dec"]
+    const weekDay = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    const day = weekDay[today.getDay()]
+    const month = months[today.getMonth()]
+    today = day + ", " + today.getDate() + " " + month
+    
     
     return (
         <div className="sidebar__wrapper flex-col">
@@ -25,11 +33,11 @@ export default function Sidebar(props) {
             <div className="sidebar__details flex-row">
                 <p className="details__day">Today</p>
                 <span>•</span>
-                <p></p>
+                <p>{today}</p>
             </div>
             <div className="sidebar__location flex-row">
                 <LocationPin size="24px" />
-                <p className="location__name">Helsinki</p>
+                <p className="location__name">{props.currentLocation.title}</p>
             </div>
         </div>
         </div>
