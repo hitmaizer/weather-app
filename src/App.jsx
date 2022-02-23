@@ -13,6 +13,7 @@ export default function App() {
     const [weatherData, setWeatherData] = React.useState()
     const [location, setLocation] = React.useState("lisbon")
     const [currentLocation, setCurrentLocation] = React.useState([])
+    const [tempFormat, setTempFormat] = React.useState("celsius")
 
     React.useEffect(() => {
         if(navigator.geolocation) {
@@ -122,6 +123,7 @@ export default function App() {
                     weatherData={weatherData}
                     currentLocation={currentLocation}
                     theme={Theme}
+                    tempFormat={tempFormat}
                     />
                     <Drawer 
                     anchor={'left'}
@@ -133,6 +135,7 @@ export default function App() {
                     <Main 
                     weatherData={weatherData}
                     theme={Theme}
+                    tempFormat={tempFormat}
                     />
                 </>}
             </ThemeProvider>
