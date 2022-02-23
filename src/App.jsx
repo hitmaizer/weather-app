@@ -6,6 +6,7 @@ import Theme from './theme/theme';
 import Drawer from '@mui/material/Drawer';
 import DrawerContent from './components/DrawerContent';
 import axios from 'axios'
+import SkeletonSidebar from './skeletons/SkeletonSidebar';
 
 
 export default function App() {
@@ -171,7 +172,7 @@ export default function App() {
         <div className="page__wrapper flex-row">
             <ThemeProvider theme={Theme}>
                 {!weatherData && 
-                    <h1>Loading Data</h1>
+                    <SkeletonSidebar />
                 }
                 {weatherData && <>                
                     <Sidebar 
