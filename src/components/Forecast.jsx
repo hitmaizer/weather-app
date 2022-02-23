@@ -45,6 +45,7 @@ export default function Forecast(props) {
             key={nanoid()}
             details={item}
             weatherImg={weatherImg}
+            tempFormat={props.tempFormat}
             />
             
         )
