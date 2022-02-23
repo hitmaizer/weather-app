@@ -109,7 +109,6 @@ export default function App() {
 
     function toggleTempFormat(id, state) {
         const selectedElement = document.getElementById(id)
-        console.log(selectedElement)
         const groupElements = document.querySelectorAll('.selected')
         
         
