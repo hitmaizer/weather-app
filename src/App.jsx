@@ -13,7 +13,7 @@ import SkeletonMain from './skeletons/SkeletonMain';
 export default function App() {
     const [state, setState] = React.useState(false)
     const [weatherData, setWeatherData] = React.useState()
-    const [location, setLocation] = React.useState("")
+    const [location, setLocation] = React.useState("lisbon")
     const [currentLocation, setCurrentLocation] = React.useState([])
     const [tempFormat, setTempFormat] = React.useState(0)
     const [initialLocation, setInitialLocation] = React.useState([])
@@ -31,7 +31,7 @@ export default function App() {
                         }
                         )
                         .then((response) => {
-                            setCurrentLocation(response.data[0])
+                            setInitialLocation(response.data[0])
                             
                         })
                         .catch(function (error) {
@@ -43,11 +43,12 @@ export default function App() {
                 fetchData();                                
             })
         }
+        console.log(initialLocation)
+        
 
         if(initialLocation.woeid) {
             async function fetchData() {
                 const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${initialLocation.woeid}/`)
-                
                 .then((response) => {
                     setWeatherData(response.data.consolidated_weather)
                     setWeatherData(data => data.map(item => {
@@ -62,7 +63,7 @@ export default function App() {
                 return request
             }
             fetchData()
-            setCurrentLocation(initialLocation)
+            
         } 
 
         
@@ -200,8 +201,7 @@ export default function App() {
         getWeatherFromLocation()
     }, [location])
 
-    console.log(currentLocation)
-    console.log(weatherData)
+    
 
     
 
