@@ -121,6 +121,7 @@ export default function App() {
                     toggleDrawer={toggleDrawer}
                     currentPosition={getCurrentPosition}
                     weatherData={weatherData}
+                    currentLocation={currentLocation}
                     />
                     <Drawer 
                     anchor={'left'}
