@@ -16,7 +16,7 @@ export default function App() {
     const [location, setLocation] = React.useState("")
     const [currentLocation, setCurrentLocation] = React.useState([])
     const [tempFormat, setTempFormat] = React.useState(0)
-    const [initialLocation, setInitialLocation] = React.useState("lisbon")
+    const [initialLocation, setInitialLocation] = React.useState([])
 
     React.useEffect(() => {
         if(navigator.geolocation) {
@@ -31,7 +31,7 @@ export default function App() {
                         }
                         )
                         .then((response) => {
-                            setInitialLocation(response.data[0])
+                            setCurrentLocation(response.data[0])
                             
                         })
                         .catch(function (error) {
