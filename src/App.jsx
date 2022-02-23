@@ -13,9 +13,10 @@ import SkeletonMain from './skeletons/SkeletonMain';
 export default function App() {
     const [state, setState] = React.useState(false)
     const [weatherData, setWeatherData] = React.useState()
-    const [location, setLocation] = React.useState("lisbon")
+    const [location, setLocation] = React.useState("")
     const [currentLocation, setCurrentLocation] = React.useState([])
     const [tempFormat, setTempFormat] = React.useState(0)
+    const [initialLocation, setInitialLocation] = React.useState("lisbon")
 
     React.useEffect(() => {
         if(navigator.geolocation) {
@@ -30,7 +31,7 @@ export default function App() {
                         }
                         )
                         .then((response) => {
-                            setCurrentLocation(response.data[0])
+                            setInitialLocation(response.data[0])
                             
                         })
                         .catch(function (error) {
@@ -43,9 +44,9 @@ export default function App() {
             })
         }
 
-        if(currentLocation.woeid) {
+        if(initialLocation.woeid) {
             async function fetchData() {
-                const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${currentLocation.woeid}/`)
+                const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${initialLocation.woeid}/`)
                 
                 .then((response) => {
                     setWeatherData(response.data.consolidated_weather)
@@ -61,14 +62,12 @@ export default function App() {
                 return request
             }
             fetchData()
+            setCurrentLocation(initialLocation)
         } 
 
         
-    }, [currentLocation.woeid])
+    }, [])
 
-    console.log(weatherData)
-
-    
     function toggleDrawer(open) {
               return function (event) {
                   return setState(open)
@@ -162,19 +161,49 @@ export default function App() {
             }))
         }
     }
+
+    function handlePopularCities(string) {
+        setLocation(string)
+        
+    }
     
     function getWeatherFromLocation() {
         //search da location
-       async function fetchData() {
-            const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/search/${location}`)
+        async function fetchData() {
+            const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${location}`)
+            //pegar no woeid que retorna 
             .then(response => {
-                console.log(response)
+                setCurrentLocation(response.data[0], currentLocation)
             })
-       }
-        //pegar no woeid que retorna 
+            .catch(function (error) {
+                console.log("I am not running");
+            })
+        }
+        fetchData()
         //fazer fetch com o woeid
-        //set weatherData[0] 
+        async function fetchDataWithWoeid() {
+            const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${currentLocation.woeid}/`)
+        
+            //set weatherData
+            .then((response) => {
+                setWeatherData(response.data.consolidated_weather, weatherData)
+            })
+            .catch(function (error) {
+                console.log("I am not running");
+            })
+        }
+        fetchDataWithWoeid()
+        
     }
+
+    React.useEffect(() => {
+        getWeatherFromLocation()
+    }, [location])
+
+    console.log(currentLocation)
+    console.log(weatherData)
+
+    
 
 
     return (
@@ -198,8 +227,10 @@ export default function App() {
                     anchor={'left'}
                     open={state}
                     onClose={toggleDrawer(false)}
+                    
                     >
-                        <DrawerContent />
+                        <DrawerContent
+                        handlePopularCities={handlePopularCities} />
                     </Drawer>
                     
                     <Main 
