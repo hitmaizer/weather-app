@@ -13,6 +13,7 @@ export default function Main(props) {
         <Forecast 
         forecast={props.weatherData}
         theme={props.theme}
+        tempFormat={props.tempFormat}
         />
         <Highlights 
         weatherDetails={props.weatherData[0]}/>
