@@ -19,6 +19,11 @@
     color: $offGray;
 }
 
+.img__container {
+    min-height: 120px;
+    justify-content: center;
+}
+
 .daily__img {
     max-width: 100%;
     width: 75px;

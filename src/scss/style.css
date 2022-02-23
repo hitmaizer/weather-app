@@ -213,6 +213,13 @@
   color: #E7E7EB;
 }
 
+.img__container {
+  min-height: 120px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .daily__img {
   max-width: 100%;
   width: 75px;
