@@ -10,8 +10,8 @@ export default function DailyWeatherCard(props) {
                 <img src={props.weatherImg} alt="" className="daily__img" />
             </div>
             <div className="daily__minmax flex-row">
-                <p className="minmax max">{Math.floor(props.details.max_temp)}ºC</p>
-                <p className="minmax min">{Math.floor(props.details.min_temp)}ºC</p>
+                <p className="minmax max">{Math.floor(props.details.max_temp)}{props.tempFormat === "celsius" ? "ºC" : "ºF"}</p>
+                <p className="minmax min">{Math.floor(props.details.min_temp)}{props.tempFormat === "celsius" ? "ºC" : "ºF"}</p>
             </div>
         </StyledCard>
     )

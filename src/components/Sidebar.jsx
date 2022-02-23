@@ -65,7 +65,7 @@ export default function Sidebar(props) {
                 </button>
             </div>
         {weatherImg !== "" && <img src={weatherImg} alt="" className="sidebar__weatherimg" />}
-        <h1 className="sidebar__weathernumber">{Math.floor(props.weatherData[0].the_temp)}<span className="weathernumber--type">ºC</span></h1>
+        <h1 className="sidebar__weathernumber">{Math.floor(props.weatherData[0].the_temp)}<span className="weathernumber--type">{props.tempFormat === "celsius" ? "ºC" : "ºF"}</span></h1>
         <h3 className="sidebar__weathertype">{props.weatherData[0].weather_state_name}</h3>
         <div className="sidebar__details--container flex-col">
             <div className="sidebar__details flex-row">
