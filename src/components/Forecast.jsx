@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid'
 
 export default function Forecast(props) {
 
-    const forecastElements = props.forecast.map(item => 
+    const forecastElements = props.forecast.slice(1).map(item => 
         <DailyWeatherCard 
         key={nanoid()}
         details={item}/>)
