@@ -11,16 +11,33 @@ export default function DrawerContent() {
                 <button className="search__btn">Search</button>
             </div>
             <div className="search__results flex-col">
+                <h1 className="result__title highlights__title">Popular Cities</h1>
                 <div className="result__item flex-row">
                     <p className="result__text">London</p>
                     <ArrowIosForwardOutline size="24px" className="result__icon" />
                 </div>
                 <div className="result__item flex-row">
-                    <p className="result__text">London</p>
+                    <p className="result__text">Berlin</p>
                     <ArrowIosForwardOutline size="24px" className="result__icon" />
                 </div>
                 <div className="result__item flex-row">
-                    <p className="result__text">London</p>
+                    <p className="result__text">Paris</p>
+                    <ArrowIosForwardOutline size="24px" className="result__icon" />
+                </div>
+                <div className="result__item flex-row">
+                    <p className="result__text">Madrid</p>
+                    <ArrowIosForwardOutline size="24px" className="result__icon" />
+                </div>
+                <div className="result__item flex-row">
+                    <p className="result__text">Stockholm</p>
+                    <ArrowIosForwardOutline size="24px" className="result__icon" />
+                </div>
+                <div className="result__item flex-row">
+                    <p className="result__text">Helsinki</p>
+                    <ArrowIosForwardOutline size="24px" className="result__icon" />
+                </div>
+                <div className="result__item flex-row">
+                    <p className="result__text">Moscow</p>
                     <ArrowIosForwardOutline size="24px" className="result__icon" />
                 </div>
 
