@@ -31,12 +31,12 @@ export default function App() {
                         }
                         )
                         .then((response) => {
+                            console.log(response)
                             setInitialLocation(response.data[0])
                             
                         })
                         .catch(function (error) {
-                            console.log("I am not running");
-                            
+                           console.log(error)
                         });  
                     return request                              
                 }
@@ -179,6 +179,7 @@ export default function App() {
             .catch(function (error) {
                 console.log("I am not running");
             })
+            return request
         }
         fetchData()
         //fazer fetch com o woeid
@@ -192,6 +193,7 @@ export default function App() {
             .catch(function (error) {
                 console.log("I am not running");
             })
+            return request
         }
         fetchDataWithWoeid()
         
