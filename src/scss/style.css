@@ -192,6 +192,11 @@
   cursor: pointer;
 }
 
+.selected {
+  background-color: #E7E7EB;
+  color: #100E1D;
+}
+
 .forecast__wrapper {
   display: -ms-grid;
   display: grid;
@@ -204,6 +209,7 @@
   place-items: center;
   padding: 16px;
   gap: 16px;
+  min-width: 150px;
 }
 
 .daily__date {
