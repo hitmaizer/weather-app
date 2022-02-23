@@ -13,7 +13,7 @@ export default function App() {
     const [weatherData, setWeatherData] = React.useState()
     const [location, setLocation] = React.useState("lisbon")
     const [currentLocation, setCurrentLocation] = React.useState([])
-    const [tempFormat, setTempFormat] = React.useState("celsius")
+    const [tempFormat, setTempFormat] = React.useState(0)
 
     React.useEffect(() => {
         if(navigator.geolocation) {
@@ -139,22 +139,28 @@ export default function App() {
         
         //Convertion Logic
         setTempFormat(state)
-        if(state === "celsius") {
-            setWeatherData(oldData => oldData.map(item => {
-                return {...item, 
-                    max_temp: convertToCelsius(item.max_temp),
-                    min_temp: convertToCelsius(item.min_temp),
-                    the_temp: convertToCelsius(item.the_temp)}
-            }))
-        }
-        if(state === "fahrenheit") {
+        console.log(state)
+        if(tempFormat === 0) {
             setWeatherData(oldData => oldData.map(item => {
                 return {...item, 
                     max_temp: convertToFahrenheit(item.max_temp),
                     min_temp: convertToFahrenheit(item.min_temp),
-                    the_temp: convertToFahrenheit(item.the_temp)}
+                    the_temp: convertToFahrenheit(item.the_temp),
+                    isCelcius: !item.isCelcius
+                }
+            }))
+        } else {
+            setWeatherData(oldData => oldData.map(item => {
+                return {...item, 
+                    max_temp: convertToCelsius(item.max_temp),
+                    min_temp: convertToCelsius(item.min_temp),
+                    the_temp: convertToCelsius(item.the_temp),
+                    isCelcius: !item.isCelcius
+                }
             }))
         }
+
+        
 
 
     }
