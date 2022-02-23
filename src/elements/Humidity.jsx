@@ -13,9 +13,6 @@ border-radius: 80px;
 
 export default function Humidity(props) {
     
-
-
-
     return (
         <StyledCard className="humidity__wrapper flex-col highlight__card">
             <h5 className="humidity__title highlight__title">Humidity</h5>
