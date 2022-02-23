@@ -7,6 +7,7 @@ import Drawer from '@mui/material/Drawer';
 import DrawerContent from './components/DrawerContent';
 import axios from 'axios'
 import SkeletonSidebar from './skeletons/SkeletonSidebar';
+import SkeletonMain from './skeletons/SkeletonMain';
 
 
 export default function App() {
@@ -171,8 +172,10 @@ export default function App() {
     return (
         <div className="page__wrapper flex-row">
             <ThemeProvider theme={Theme}>
-                {!weatherData && 
+                {!weatherData && <>
                     <SkeletonSidebar />
+                    <SkeletonMain />
+                </>
                 }
                 {weatherData && <>                
                     <Sidebar 
@@ -190,12 +193,14 @@ export default function App() {
                     >
                         <DrawerContent />
                     </Drawer>
+                    
                     <Main 
                     weatherData={weatherData}
                     theme={Theme}
                     tempFormat={tempFormat}
                     setTempFormat={(state, id) => toggleTempFormat(state, id)}
                     />
+
                 </>}
             </ThemeProvider>
         </div>
