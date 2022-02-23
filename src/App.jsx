@@ -161,12 +161,20 @@ export default function App() {
                 }
             }))
         }
-
-        
-
-
     }
     
+    function getWeatherFromLocation() {
+        //search da location
+       async function fetchData() {
+            const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/search/${location}`)
+            .then(response => {
+                console.log(response)
+            })
+       }
+        //pegar no woeid que retorna 
+        //fazer fetch com o woeid
+        //set weatherData[0] 
+    }
 
 
     return (
