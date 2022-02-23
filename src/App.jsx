@@ -47,6 +47,10 @@ export default function App() {
                 
                 .then((response) => {
                     setWeatherData(response.data.consolidated_weather)
+                    setWeatherData(data => data.map(item => {
+                        return {...item,
+                        isCelcius: true}
+                    }))
                 })
                 .catch(function (error) {
                     console.log("I am not running");
@@ -118,13 +122,12 @@ export default function App() {
     }
 
     function toggleTempFormat(id, state) {
-
+        
+        //Styling Btn
         const selectedElement = document.getElementById(id)
         const groupElements = document.querySelectorAll('.selected')
-        
-        
         if (selectedElement.classList.contains('selected')) {
-            selectedElement.classList.remove('selected')
+            
         } else {
             groupElements.forEach(e => {
                 if(e.classList.contains('selected')) {
@@ -134,10 +137,29 @@ export default function App() {
             selectedElement.classList.add('selected')
         }
         
+        //Convertion Logic
         setTempFormat(state)
+        if(state === "celsius") {
+            setWeatherData(oldData => oldData.map(item => {
+                return {...item, 
+                    max_temp: convertToCelsius(item.max_temp),
+                    min_temp: convertToCelsius(item.min_temp),
+                    the_temp: convertToCelsius(item.the_temp)}
+            }))
+        }
+        if(state === "fahrenheit") {
+            setWeatherData(oldData => oldData.map(item => {
+                return {...item, 
+                    max_temp: convertToFahrenheit(item.max_temp),
+                    min_temp: convertToFahrenheit(item.min_temp),
+                    the_temp: convertToFahrenheit(item.the_temp)}
+            }))
+        }
+
 
     }
     
+
 
     return (
         <div className="page__wrapper flex-row">
