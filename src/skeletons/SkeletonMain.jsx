@@ -1,4 +1,5 @@
 import React from 'react';
+import Shimmer from './Shimmer';
 import SkeletonCard from './SkeletonCard';
 import SkeletonElement from './SkeletonElement';
 import SkeletonHighlight from './SkeletonHighlight';
@@ -16,6 +17,7 @@ export default function SkeletonMain() {
                 <SkeletonCard />
                 <SkeletonCard />
                 <SkeletonCard />
+                <Shimmer />
             </div>
             <SkeletonElement type="title"/>
             <div className="skeleton__highlights highlights__grid">
@@ -23,7 +25,7 @@ export default function SkeletonMain() {
                 <SkeletonHighlight />
                 <SkeletonHighlight />
                 <SkeletonHighlight />
-
+                <Shimmer />
             </div>
         </div> 
     )

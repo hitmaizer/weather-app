@@ -10,6 +10,7 @@ export default function SkeletonCard() {
                 <SkeletonElement type="thumbnail" />
                 <SkeletonElement type="text" />
             </StyledCard>
+            
         </div>
     )
 }

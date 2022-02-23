@@ -10,6 +10,7 @@ export default function SkeletonHighlight() {
                 <SkeletonElement type="title" />
                 <SkeletonElement type="subtext" />
             </StyledCard>
+            
         </div>
     )
 }
