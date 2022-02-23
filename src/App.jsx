@@ -107,7 +107,18 @@ export default function App() {
         
     }
 
+    function convertToFahrenheit(num) {
+        const convertedNumber = (num * 1.8) + 32
+        return convertedNumber
+    }
+    
+    function convertToCelsius(num) {
+        const convertedNumber = (num - 32) * .5556
+        return convertedNumber
+    }
+
     function toggleTempFormat(id, state) {
+
         const selectedElement = document.getElementById(id)
         const groupElements = document.querySelectorAll('.selected')
         
