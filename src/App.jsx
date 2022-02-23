@@ -132,6 +132,7 @@ export default function App() {
                     </Drawer>
                     <Main 
                     weatherData={weatherData}
+                    theme={Theme}
                     />
                 </>}
             </ThemeProvider>
