@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 
 
+
 export default function Humidity(props) {
     
     const ProgressBar = styled.div`
