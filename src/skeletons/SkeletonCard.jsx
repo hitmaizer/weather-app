@@ -5,8 +5,8 @@ import SkeletonElement from './SkeletonElement';
 export default function SkeletonCard() {
     return (
         <div className="skeletoncard__wrapper">
-            <StyledCard>
-                <SkeletonElement type="title" />
+            <StyledCard className="forecast__card flex-col">
+                <SkeletonElement type="subtext" />
                 <SkeletonElement type="thumbnail" />
                 <SkeletonElement type="text" />
             </StyledCard>
