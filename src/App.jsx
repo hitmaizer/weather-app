@@ -63,9 +63,8 @@ export default function App() {
 
     // url for api lisbon location "https://www.metaweather.com/api/location/742676/"
 
-    //your first function
+    
     function toggleDrawer(open) {
-        //your secound function
               return function (event) {
                   return setState(open)
               }
@@ -122,6 +121,7 @@ export default function App() {
                     currentPosition={getCurrentPosition}
                     weatherData={weatherData}
                     currentLocation={currentLocation}
+                    theme={Theme}
                     />
                     <Drawer 
                     anchor={'left'}
