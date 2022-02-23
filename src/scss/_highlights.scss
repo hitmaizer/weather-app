@@ -68,6 +68,10 @@
 
 .progressbar__type {
     place-self: flex-end;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    color: $darkGray;
 }
 
 .progress__container {
