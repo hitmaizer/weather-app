@@ -1,10 +1,12 @@
 import React from 'react';
 import DailyWeatherCard from '../elements/DailyWeatherCard'
 import { nanoid } from 'nanoid'
+import moment from 'moment';
 
 export default function Forecast(props) {
 
     const forecastElements = props.forecast.slice(1).map(item => {
+        let m = moment(item.applicable_date)
         let weatherImg = ""
         switch(item.weather_state_abbr){
                 default:
@@ -46,6 +48,7 @@ export default function Forecast(props) {
             details={item}
             weatherImg={weatherImg}
             tempFormat={props.tempFormat}
+            date={m.format("dddd")}
             />
             
         )
