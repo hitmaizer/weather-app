@@ -62,8 +62,6 @@ export default function App() {
 
     console.log(weatherData)
 
-    // url for api lisbon location "https://www.metaweather.com/api/location/742676/"
-
     
     function toggleDrawer(open) {
               return function (event) {
@@ -108,6 +106,27 @@ export default function App() {
         })
         
     }
+
+    function toggleTempFormat(id, state) {
+        const selectedElement = document.getElementById(id)
+        console.log(selectedElement)
+        const groupElements = document.querySelectorAll('.selected')
+        
+        
+        if (selectedElement.classList.contains('selected')) {
+            selectedElement.classList.remove('selected')
+        } else {
+            groupElements.forEach(e => {
+                if(e.classList.contains('selected')) {
+                    e.classList.remove('selected')
+                }
+            })
+            selectedElement.classList.add('selected')
+        }
+        
+        setTempFormat(state)
+
+    }
     
 
     return (
@@ -136,6 +155,7 @@ export default function App() {
                     weatherData={weatherData}
                     theme={Theme}
                     tempFormat={tempFormat}
+                    setTempFormat={(state, id) => toggleTempFormat(state, id)}
                     />
                 </>}
             </ThemeProvider>
