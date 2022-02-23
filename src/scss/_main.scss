@@ -24,3 +24,8 @@
     text-align: center;
     cursor: pointer;
 }
+
+.selected {
+    background-color: $offGray;
+    color: $grayBlue;
+}
