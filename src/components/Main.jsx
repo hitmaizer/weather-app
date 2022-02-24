@@ -3,6 +3,7 @@ import Forecast from './Forecast'
 import Highlights from './Highlights'
 
 export default function Main(props) {
+    
     return (
         <div className="main__wrapper flex-col">
             <div className="toggle__type flex-row">
@@ -11,12 +12,12 @@ export default function Main(props) {
             </div>
         
         <Forecast 
-        forecast={props.weatherData}
+        forecast={props.data.forecast}
         theme={props.theme}
         tempFormat={props.tempFormat}
         />
         <Highlights 
-        weatherDetails={props.weatherData[0]}/>
+        weatherDetails={props.data.current}/>
         </div>
     )
 }
