@@ -12,7 +12,7 @@ export default function Sidebar(props) {
     const month = months[today.getMonth()]
     today = day + ", " + today.getDate() + " " + month
     
-    const todayState = props.weatherData[0].weather_state_abbr
+    const todayState = props.data.current.condition.text
 
     let weatherImg = ""
     switch(todayState){
@@ -48,6 +48,9 @@ export default function Sidebar(props) {
             case "Sunny": 
                 weatherImg = props.theme.images.clear
             break            
+            case "Clear": 
+                weatherImg = props.theme.images.clear
+            break            
     }
 
 
@@ -64,7 +67,7 @@ export default function Sidebar(props) {
                     </span>
                 </button>
             </div>
-        {props.data.current.condition.icon !== "" && <img src={props.data.current.condition.icon} alt="" className="sidebar__weatherimg" />}
+        {props.data.current.condition.text !== "" && <img src={weatherImg} alt="" className="sidebar__weatherimg" />}
         <h1 className="sidebar__weathernumber">{Math.floor(props.data.current.temp_c)}<span className="weathernumber--type">{props.tempFormat === 0 ? "ºC" : "ºF"}</span></h1>
         <h3 className="sidebar__weathertype">{props.data.current.condition.text}</h3>
         <div className="sidebar__details--container flex-col">
