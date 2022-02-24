@@ -4,10 +4,14 @@ import { nanoid } from 'nanoid'
 import moment from 'moment';
 
 export default function Forecast(props) {
+    let forecastData = [props.forecast.forecastday]
+    
 
-    const forecastElements = props.forecast.slice(1).map(item => {
-        let m = moment(item.applicable_date)
-        let weatherImg = ""
+
+    const forecastElements = forecastData[0].map(item => {
+        console.log(item)
+        let m = moment(item.date)
+        /* let weatherImg = ""
         switch(item.weather_state_abbr){
                 default:
                 break
@@ -41,12 +45,12 @@ export default function Forecast(props) {
                 case "c": 
                     weatherImg = props.theme.images.clear
                 break            
-        }
+        } */
         return (
             <DailyWeatherCard 
             key={nanoid()}
             details={item}
-            weatherImg={weatherImg}
+            // weatherImg={weatherImg}
             tempFormat={props.tempFormat}
             date={m.format("dddd")}
             />
