@@ -17,58 +17,34 @@ export default function App() {
     const [currentLocation, setCurrentLocation] = React.useState([])
     const [tempFormat, setTempFormat] = React.useState(0)
     const [initialLocation, setInitialLocation] = React.useState([])
-
+    const [data, setData] = React.useState(null)
+    const [loading, setLoading] = React.useState(false)
+    const [error, setError] = React.useState(null)
+    
+    
     React.useEffect(() => {
-        if(navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                async function fetchData() {
-                    const request = await axios.get(
-                        "https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/search",
-                        {
-                            params: {
-                                lattlong: `${position.coords.latitude},${position.coords.longitude}`,
-                            },
-                        }
-                        )
-                        .then((response) => {
-                            console.log(response)
-                            setInitialLocation(response.data[0])
-                            
-                        })
-                        .catch(function (error) {
-                           console.log(error)
-                        });  
-                    return request                              
-                }
-                fetchData();                                
+        setLoading(true)
+        async function fetchData() {
+            const request = await 
+            axios
+            .get(`https://api.weatherapi.com/v1/forecast.json?key=ab6b1356bf884054be9193112222402&q=${location}&days=7&aqi=no&alerts=no`)
+            .then((response) => {
+                setData(response.data)
+
             })
+            .catch((error) => {
+                setError(error)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
+            return request
         }
-        console.log(initialLocation)
-        
-
-        if(initialLocation.woeid) {
-            async function fetchData() {
-                const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${initialLocation.woeid}/`)
-                .then((response) => {
-                    setWeatherData(response.data.consolidated_weather)
-                    setWeatherData(data => data.map(item => {
-                        return {...item,
-                        isCelcius: true}
-                    }))
-                })
-                .catch(function (error) {
-                    console.log("I am not running");
-                })
-                
-                return request
-            }
-            fetchData()
-            
-        } 
-
-        
+        fetchData()
     }, [])
 
+    console.log(data)
+        
     function toggleDrawer(open) {
               return function (event) {
                   return setState(open)
@@ -199,50 +175,58 @@ export default function App() {
         
     }
 
-    React.useEffect(() => {
+    /* React.useEffect(() => {
         getWeatherFromLocation()
-    }, [location])
-
-    
-
-    
+    }, [location]) */
 
 
     return (
         <div className="page__wrapper flex-row">
             <ThemeProvider theme={Theme}>
-                {!weatherData && <>
+                {data === null ?  <>
                     <SkeletonSidebar />
                     <SkeletonMain />
                 </>
+                :
+                <>
+                    {data !== null && 
+                    
+                        <>
+                            <Sidebar 
+                            toggleDrawer={toggleDrawer}
+                            data={data}
+                            theme={Theme}
+                            tempFormat={tempFormat}
+                            />
+                            <Drawer 
+                            anchor={'left'}
+                            open={state}
+                            onClose={toggleDrawer(false)}
+                            
+                            >
+                                <DrawerContent />
+                            </Drawer>
+                            
+                            <Main 
+                            data={data}
+                            forescast={data.forecast}
+                            theme={Theme}
+                            tempFormat={tempFormat}
+                            setTempFormat={(state, id) => toggleTempFormat(state, id)}
+                            />
+                        </>
+                    } 
+                </>
+                
                 }
-                {weatherData && <>                
-                    <Sidebar 
-                    toggleDrawer={toggleDrawer}
-                    currentPosition={getCurrentPosition}
-                    weatherData={weatherData}
-                    currentLocation={currentLocation}
-                    theme={Theme}
-                    tempFormat={tempFormat}
-                    />
-                    <Drawer 
-                    anchor={'left'}
-                    open={state}
-                    onClose={toggleDrawer(false)}
-                    
-                    >
-                        <DrawerContent
-                        handlePopularCities={handlePopularCities} />
-                    </Drawer>
-                    
-                    <Main 
-                    weatherData={weatherData}
-                    theme={Theme}
-                    tempFormat={tempFormat}
-                    setTempFormat={(state, id) => toggleTempFormat(state, id)}
-                    />
+                {/* {data === null && 
+                <SkeletonMain />}
+                {data !== null && <Main 
+                data={data}
+                tempFormat={tempFormat}
+                />} */}       
 
-                </>}
+                
             </ThemeProvider>
         </div>
     )
