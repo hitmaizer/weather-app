@@ -39,13 +39,13 @@ export default function Sidebar(props) {
             case "s":
                 weatherImg = props.theme.images.shower
             break
-            case "hc":
+            case "Cloudy":
                 weatherImg = props.theme.images.heavyCloud
             break
-            case "lc":
+            case "Partly cloudy":
                 weatherImg = props.theme.images.lightCloud
             break
-            case "c": 
+            case "Sunny": 
                 weatherImg = props.theme.images.clear
             break            
     }
@@ -64,9 +64,9 @@ export default function Sidebar(props) {
                     </span>
                 </button>
             </div>
-        {weatherImg !== "" && <img src={weatherImg} alt="" className="sidebar__weatherimg" />}
-        <h1 className="sidebar__weathernumber">{Math.floor(props.weatherData[0].the_temp)}<span className="weathernumber--type">{props.tempFormat === 0 ? "ºC" : "ºF"}</span></h1>
-        <h3 className="sidebar__weathertype">{props.weatherData[0].weather_state_name}</h3>
+        {props.data.current.condition.icon !== "" && <img src={props.data.current.condition.icon} alt="" className="sidebar__weatherimg" />}
+        <h1 className="sidebar__weathernumber">{Math.floor(props.data.current.temp_c)}<span className="weathernumber--type">{props.tempFormat === 0 ? "ºC" : "ºF"}</span></h1>
+        <h3 className="sidebar__weathertype">{props.data.current.condition.text}</h3>
         <div className="sidebar__details--container flex-col">
             <div className="sidebar__details flex-row">
                 <p className="details__day">Today</p>
@@ -75,7 +75,7 @@ export default function Sidebar(props) {
             </div>
             <div className="sidebar__location flex-row">
                 <LocationPin size="24px" />
-                <p className="location__name">{props.currentLocation.title}</p>
+                <p className="location__name">{props.data.location.name}</p>
             </div>
         </div>
         </div>
