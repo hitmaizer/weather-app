@@ -94,7 +94,11 @@ export default function App() {
             const request = await axios
             .get(`https://api.weatherapi.com/v1/search.json?key=ab6b1356bf884054be9193112222402&q=${typedLocation}`)
             .then((response) => {
-                setFilteredData(response.data)
+                if(searchWord === "") {
+                    setFilteredData([])
+                } else {
+                    setFilteredData(response.data)
+                }
             })
             .catch((error) => {
                 setError(error)
