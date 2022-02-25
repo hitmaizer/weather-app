@@ -3,6 +3,7 @@ import { ArrowIosForwardOutline } from '@styled-icons/evaicons-outline/ArrowIosF
 import { SearchOutline } from '@styled-icons/evaicons-outline/SearchOutline'
 import { LocationPin } from '@styled-icons/entypo/LocationPin';
 import { nanoid } from 'nanoid'
+import PopularCities from '../elements/PopularCities'
 
 export default function DrawerContent(props) {
     return (
@@ -25,35 +26,7 @@ export default function DrawerContent(props) {
 
             <div className="search__results flex-col">
                 <h1 className="result__title highlights__title">Popular Cities</h1>
-                <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("london")}>
-                    <p className="result__text">London</p>
-                    <ArrowIosForwardOutline size="24px" className="result__icon" />
-                </div>
-                <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("berlin")}>
-                    <p className="result__text">Berlin</p>
-                    <ArrowIosForwardOutline size="24px" className="result__icon" />
-                </div>
-                <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("paris")}>
-                    <p className="result__text">Paris</p>
-                    <ArrowIosForwardOutline size="24px" className="result__icon" />
-                </div>
-                <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("madrid")}>
-                    <p className="result__text">Madrid</p>
-                    <ArrowIosForwardOutline size="24px" className="result__icon" />
-                </div>
-                <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("stockholm")}>
-                    <p className="result__text">Stockholm</p>
-                    <ArrowIosForwardOutline size="24px" className="result__icon" />
-                </div>
-                <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("helsinki")}>
-                    <p className="result__text">Helsinki</p>
-                    <ArrowIosForwardOutline size="24px" className="result__icon" />
-                </div>
-                <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("moscow")}>
-                    <p className="result__text">Moscow</p>
-                    <ArrowIosForwardOutline size="24px" className="result__icon" />
-                </div>
-
+                <PopularCities handlePopularCities={(string) => props.handlePopularCities(string)} />
             </div>
         </div>
     )
