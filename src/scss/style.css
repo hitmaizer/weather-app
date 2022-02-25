@@ -84,7 +84,7 @@
 }
 
 .sidebar__btn {
-  background-color: #6E707A;
+  background-color: #3C47E9;
   color: #E7E7EB;
   border: none;
   border-radius: 8px;
@@ -196,8 +196,8 @@
 }
 
 .selected {
-  background-color: #E7E7EB;
-  color: #100E1D;
+  background-color: #3C47E9;
+  color: #E7E7EB;
 }
 
 .forecast__wrapper {
