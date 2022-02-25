@@ -366,6 +366,7 @@
   background-color: #1E213A;
   padding: 32px;
   font-family: "Raleway", sans-serif;
+  overflow-y: auto;
 }
 
 .search__container {
@@ -459,6 +460,15 @@
 }
 
 .result__icon {
+  color: #E7E7EB;
+}
+
+.result__textinput {
+  max-width: 25ch;
+  text-align: right;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
   color: #E7E7EB;
 }
 
