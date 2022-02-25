@@ -16,13 +16,13 @@ export default function DrawerContent(props) {
                 <div className="search__results">
                     {props.filteredData.map((item) => {
                         return <div key={nanoid()} className="result__item flex-row">
-                                <LocationPin size="24px" className="result__icon"/>
-                                <p className="result__text" onClick={(string) => props.searchTypedLocation(item.name)}>{item.name}, {item.region}</p> 
+                                <LocationPin size="24px" className="result__icon icon--location"/>
+                                <p className="result__textinput" onClick={(string) => props.searchTypedLocation(item.name)}>{item.name}, {item.region}</p> 
                             </div>                        
                     })}
                 </div>
             }
-            
+
             <div className="search__results flex-col">
                 <h1 className="result__title highlights__title">Popular Cities</h1>
                 <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("london")}>
