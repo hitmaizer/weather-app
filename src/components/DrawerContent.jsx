@@ -1,5 +1,4 @@
 import React from 'react';
-import { ArrowIosForwardOutline } from '@styled-icons/evaicons-outline/ArrowIosForwardOutline'
 import { SearchOutline } from '@styled-icons/evaicons-outline/SearchOutline'
 import { LocationPin } from '@styled-icons/entypo/LocationPin';
 import { nanoid } from 'nanoid'
