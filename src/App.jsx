@@ -115,28 +115,8 @@ export default function App() {
             selectedElement.classList.add('selected')
         }
         
-        //Convertion Logic
         setTempFormat(state)
-        console.log(state)
-        if(tempFormat === 0) {
-            setWeatherData(oldData => oldData.map(item => {
-                return {...item, 
-                    max_temp: convertToFahrenheit(item.max_temp),
-                    min_temp: convertToFahrenheit(item.min_temp),
-                    the_temp: convertToFahrenheit(item.the_temp),
-                    isCelcius: !item.isCelcius
-                }
-            }))
-        } else {
-            setWeatherData(oldData => oldData.map(item => {
-                return {...item, 
-                    max_temp: convertToCelsius(item.max_temp),
-                    min_temp: convertToCelsius(item.min_temp),
-                    the_temp: convertToCelsius(item.the_temp),
-                    isCelcius: !item.isCelcius
-                }
-            }))
-        }
+        
     }
 
     function handlePopularCities(string) {
