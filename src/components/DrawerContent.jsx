@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowIosForwardOutline } from '@styled-icons/evaicons-outline/ArrowIosForwardOutline'
 import { SearchOutline } from '@styled-icons/evaicons-outline/SearchOutline'
-import { NavigationOutlineDimensions } from '@styled-icons/evaicons-outline/NavigationOutline';
+import { LocationPin } from '@styled-icons/entypo/LocationPin';
 import { nanoid } from 'nanoid'
 
 export default function DrawerContent(props) {
@@ -10,19 +10,19 @@ export default function DrawerContent(props) {
             <div className="search__container flex-row">
                 <input type="text" className="search__input" placeholder="search location" onChange={(event) => props.handleFilter(event)}/>
                 <SearchOutline size="24px" className="search__icon"/>
-                <button className="search__btn">Search</button>
+                
             </div>
             {props.filteredData !== [] && 
                 <div className="search__results">
                     {props.filteredData.map((item) => {
-                        return <div key={nanoid()} className="result__item">
+                        return <div key={nanoid()} className="result__item flex-row">
+                                <LocationPin size="24px" className="result__icon"/>
                                 <p className="result__text" onClick={(string) => props.searchTypedLocation(item.name)}>{item.name}, {item.region}</p> 
-                            </div>
-                        
-                        
+                            </div>                        
                     })}
                 </div>
             }
+            
             <div className="search__results flex-col">
                 <h1 className="result__title highlights__title">Popular Cities</h1>
                 <div className="result__item flex-row" onClick={(string) => props.handlePopularCities("london")}>
