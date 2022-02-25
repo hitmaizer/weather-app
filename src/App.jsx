@@ -175,22 +175,19 @@ export default function App() {
         
     }
 
-    /* React.useEffect(() => {
-        getWeatherFromLocation()
-    }, [location]) */
-
+   
 
     return (
         <div className="page__wrapper flex-row">
             <ThemeProvider theme={Theme}>
-                {data === null ?  <>
+                {data === null ?  
+                <>
                     <SkeletonSidebar />
                     <SkeletonMain />
                 </>
                 :
                 <>
-                    {data !== null && 
-                    
+                    {data !== null &&                     
                         <>
                             <Sidebar 
                             toggleDrawer={toggleDrawer}
@@ -217,16 +214,7 @@ export default function App() {
                         </>
                     } 
                 </>
-                
                 }
-                {/* {data === null && 
-                <SkeletonMain />}
-                {data !== null && <Main 
-                data={data}
-                tempFormat={tempFormat}
-                />} */}       
-
-                
             </ThemeProvider>
         </div>
     )
