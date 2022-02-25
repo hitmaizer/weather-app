@@ -11,6 +11,8 @@ import SkeletonMain from './skeletons/SkeletonMain';
 
 
 export default function App() {
+    const initialItems = ["London", "Berlin", "Paris", "Madrid", "Stockholm", "Helsinki", "Moscow"]
+    
     const [state, setState] = React.useState(false)
     const [location, setLocation] = React.useState("lisbon")
     const [tempFormat, setTempFormat] = React.useState(0)
@@ -19,6 +21,8 @@ export default function App() {
     const [error, setError] = React.useState(null)
     const [filteredData, setFilteredData] = React.useState([])
     const [typedLocation, setTypedLocation] = React.useState("")
+    const [items, setItems] = React.useState(initialItems)
+
     
     
     React.useEffect(() => {
@@ -146,6 +150,8 @@ export default function App() {
                                 filteredData={filteredData}
                                 handleFilter={(event) => handleFilter(event)}
                                 searchTypedLocation={(string) =>searchTypedLocation(string)}
+                                items={items}
+                                setItems={setItems}
                                 />
                             </Drawer>
                             
