@@ -10,7 +10,7 @@ export default function WindStatus(props) {
             <h5 className="wind__title highlight__title">Wind Status</h5>
             <div className="highlights__main flex-row">
                 <h1 className="wind__number highlight__detail">{Math.floor(props.weatherDetails.wind_kph)}</h1>
-                <h5 className="wind__type highlight__type">kph</h5>
+                <h5 className="wind__type highlight__type">Km/h</h5>
             </div>
             <div className="wind__direction flex-row">
                 {props.weatherDetails.wind_dir === "N" && <ArrowUpward size="24px" />}
