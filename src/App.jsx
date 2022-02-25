@@ -18,7 +18,9 @@ export default function App() {
     const [location, setLocation] = React.useState("lisbon")
     const [tempFormat, setTempFormat] = React.useState(0)
     const [data, setData] = React.useState(null)
+    // eslint-disable-next-line no-unused-vars
     const [loading, setLoading] = React.useState(false)
+    // eslint-disable-next-line no-unused-vars
     const [error, setError] = React.useState(null)
     const [filteredData, setFilteredData] = React.useState([])
     const [typedLocation, setTypedLocation] = React.useState("")
@@ -117,7 +119,7 @@ export default function App() {
         
     }
 
-    function searchTypedLocation (string) {
+    function searchTypedLocation(string) {
         setLocation(string)
         setFilteredData([])
     }
