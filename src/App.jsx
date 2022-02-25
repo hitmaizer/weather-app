@@ -111,9 +111,6 @@ export default function App() {
         
     }
 
-    console.log(filteredData)
-    
-
     function searchTypedLocation (string) {
         setLocation(string)
         setFilteredData([])
