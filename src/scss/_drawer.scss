@@ -13,7 +13,7 @@
 
 .search__input {
     border: solid 1px $offGray;
-    width: 268px;
+    width: 100%;
     background-color: transparent;
     height: 48px;
     text-indent: 48px;
@@ -45,7 +45,7 @@
 .search__results {
     width: 367px;
     gap: 8px;
-    margin-top: 32px;
+    
     
 }
 
