@@ -17,6 +17,7 @@ export default function App() {
     const [data, setData] = React.useState(null)
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(null)
+    const [filteredData, setFilteredData] = React.useState([])
     const [typedLocation, setTypedLocation] = React.useState("")
     
     
@@ -42,10 +43,10 @@ export default function App() {
     }, [location])
         
     function toggleDrawer(open) {
-              return function (event) {
-                  return setState(open)
-              }
-          }     
+        return function (event) {
+            return setState(open)
+        }
+    }     
 
     function getCurrentPosition(){
         if(navigator.geolocation) {
@@ -85,15 +86,33 @@ export default function App() {
         setLocation(string)        
     }
 
-    function handleTyping() {
-        // keep track of input event.target.value 
-        // store it in a state 
+    function handleFilter(event) {
+        const searchWord = event.target.value
+        setTypedLocation(searchWord)
+        setLoading(true)
+        async function fetchData(){
+            const request = await axios
+            .get(`https://api.weatherapi.com/v1/search.json?key=ab6b1356bf884054be9193112222402&q=${typedLocation}`)
+            .then((response) => {
+                setFilteredData(response.data)
+            })
+            .catch((error) => {
+                setError(error)
+                console.log(error)
+            })
+            .finally(setLoading(false))
+            return request
+        }
+        fetchData()
         
     }
 
-    function searchTypedLocation () {
-        // on search click set location to value
-        setLocation(typedLocation)
+    console.log(filteredData)
+    
+
+    function searchTypedLocation (string) {
+        setLocation(string)
+        setFilteredData([])
     }
     
     return (
@@ -123,6 +142,9 @@ export default function App() {
                             >
                                 <DrawerContent 
                                 handlePopularCities={(string) => handlePopularCities(string)}
+                                filteredData={filteredData}
+                                handleFilter={(event) => handleFilter(event)}
+                                searchTypedLocation={(string) =>searchTypedLocation(string)}
                                 />
                             </Drawer>
                             
