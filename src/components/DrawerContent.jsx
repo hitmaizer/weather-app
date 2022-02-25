@@ -28,7 +28,8 @@ export default function DrawerContent(props) {
                 <h1 className="result__title highlights__title">Popular Cities</h1>
                 <PopularCities 
                 handlePopularCities={(string) => props.handlePopularCities(string)} 
-                />
+                items={props.items}
+                setItems={props.setItems}/>
             </div>
         </div>
     )
