@@ -1,6 +1,6 @@
 .forecast__wrapper {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     
     
@@ -27,12 +27,12 @@
 
 .daily__img {
     max-width: 100%;
-    width: 75px;
+    width: 90px;
     margin-bottom: 16px;
 }
 
 .daily__minmax {
-    gap: 16px;
+    gap: 64px;
 }
 
 .minmax {
