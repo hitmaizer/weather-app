@@ -13,50 +13,6 @@ export default function Sidebar(props) {
     const month = months[today.getMonth()]
     today = day + ", " + today.getDate() + " " + month
     
-    /* const todayState = props.data.current.condition.text
-
-    let weatherImg = ""
-    switch(todayState){
-            default:
-                weatherImg = props.theme.images.clear
-            break
-            case "sn":
-                weatherImg = props.theme.images.snow
-            break
-            case "sl":
-                weatherImg = props.theme.images.sleet
-            break
-            case "h":
-                weatherImg = props.theme.images.hail
-            break
-            case "t": 
-                weatherImg = props.theme.images.thunderStorm
-            break
-            case "hr":
-                weatherImg = props.theme.images.heavyRain
-            break
-            case "lr":
-                weatherImg = props.theme.images.lightRain
-            break
-            case "s":
-                weatherImg = props.theme.images.shower
-            break
-            case "Cloudy":
-                weatherImg = props.theme.images.heavyCloud
-            break
-            case "Partly cloudy":
-                weatherImg = props.theme.images.lightCloud
-            break
-            case "Sunny": 
-                weatherImg = props.theme.images.clear
-            break            
-            case "Clear": 
-                weatherImg = props.theme.images.clear
-            break            
-    } */
-
-
-
     return (
         <div className="sidebar__wrapper flex-col">
             <div className="sidebar__top flex-row">
