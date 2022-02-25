@@ -29,3 +29,18 @@
     background-color: $lightBlue;
     color: $offGray;
 }
+
+.footer__sign {
+    width: 100%;
+    font-family: $montserrat;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: $darkGray;
+    margin-top: 32px;
+    a {
+        text-decoration: none;
+        color: $darkGray;
+    }
+}
