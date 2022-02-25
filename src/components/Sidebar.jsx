@@ -1,6 +1,7 @@
 import React from 'react';
 import { MyLocation } from '@styled-icons/fluentui-system-filled/MyLocation'
 import { LocationPin } from '@styled-icons/entypo/LocationPin'
+import WeatherImg from '../elements/weatherImg'
 
 
 
@@ -12,11 +13,12 @@ export default function Sidebar(props) {
     const month = months[today.getMonth()]
     today = day + ", " + today.getDate() + " " + month
     
-    const todayState = props.data.current.condition.text
+    /* const todayState = props.data.current.condition.text
 
     let weatherImg = ""
     switch(todayState){
             default:
+                weatherImg = props.theme.images.clear
             break
             case "sn":
                 weatherImg = props.theme.images.snow
@@ -51,7 +53,7 @@ export default function Sidebar(props) {
             case "Clear": 
                 weatherImg = props.theme.images.clear
             break            
-    }
+    } */
 
 
 
@@ -67,7 +69,12 @@ export default function Sidebar(props) {
                     </span>
                 </button>
             </div>
-        {props.data.current.condition.text !== "" && <img src={weatherImg} alt="" className="sidebar__weatherimg" />}
+        {props.data.current.condition.text !== "" && 
+            <WeatherImg 
+            theme={props.theme}
+            text={props.data.current.condition.text}
+            />
+        }
         <h1 className="sidebar__weathernumber">{props.tempFormat === 0 ? Math.floor(props.data.current.temp_c) : Math.floor(props.data.current.temp_f)}<span className="weathernumber--type">{props.tempFormat === 0 ? "ºC" : "ºF"}</span></h1>
         <h3 className="sidebar__weathertype">{props.data.current.condition.text}</h3>
         <div className="sidebar__details--container flex-col">
