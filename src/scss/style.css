@@ -205,6 +205,22 @@ ul {
   color: #E7E7EB;
 }
 
+.footer__sign {
+  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #A09FB1;
+  margin-top: 32px;
+}
+
+.footer__sign a {
+  text-decoration: none;
+  color: #A09FB1;
+}
+
 .forecast__wrapper {
   display: -ms-grid;
   display: grid;
@@ -272,7 +288,7 @@ ul {
   line-height: 28px;
   color: #E7E7EB;
   margin-bottom: 32px;
-  margin-top: 72px;
+  margin-top: 40px;
 }
 
 .highlight__card {
