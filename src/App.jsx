@@ -10,6 +10,7 @@ import SkeletonSidebar from './skeletons/SkeletonSidebar';
 import SkeletonMain from './skeletons/SkeletonMain';
 
 
+
 export default function App() {
     const initialItems = ["London", "Berlin", "Paris", "Madrid", "Stockholm", "Helsinki", "Moscow"]
     
@@ -22,6 +23,7 @@ export default function App() {
     const [filteredData, setFilteredData] = React.useState([])
     const [typedLocation, setTypedLocation] = React.useState("")
     const [items, setItems] = React.useState(initialItems)
+    
 
     
     
