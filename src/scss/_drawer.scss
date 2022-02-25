@@ -4,6 +4,7 @@
     background-color: $darkBlue;
     padding: 32px;
     font-family: $raleway;
+    overflow-y: auto;
 }
 
 .search__container {
@@ -67,6 +68,16 @@
 }
 
 .result__icon {
+    color: $offGray;
+    
+}
+
+.result__textinput {
+    max-width: 25ch;
+    text-align: right;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
     color: $offGray;
 }
 
