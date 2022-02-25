@@ -1,6 +1,6 @@
 import React from 'react'
 import { ArrowIosForwardOutline } from '@styled-icons/evaicons-outline/ArrowIosForwardOutline'
-import { useMotionValue, Reorder } from "framer-motion";
+import { Reorder } from "framer-motion";
 
 
 function Item(props) {
