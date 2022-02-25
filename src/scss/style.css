@@ -28,7 +28,6 @@
 .sidebar__wrapper {
   position: relative;
   background-color: #1E213A;
-  min-height: 100vh;
   font-family: "Raleway", sans-serif;
   padding: 16px;
   min-width: 459px;
@@ -378,7 +377,7 @@
 
 .search__input {
   border: solid 1px #E7E7EB;
-  width: 268px;
+  width: 100%;
   background-color: transparent;
   height: 48px;
   text-indent: 48px;
@@ -435,7 +434,6 @@
 .search__results {
   width: 367px;
   gap: 8px;
-  margin-top: 32px;
 }
 
 .result__item {
