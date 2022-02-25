@@ -10,14 +10,16 @@ export default function Main(props) {
                 <button id="celsius" className="toggle__btn toggle__celsius selected" onClick={() => props.setTempFormat("celsius", 0)}>ºC</button>
                 <button id="fahrenheit" className="toggle__btn toggle__fahrenheit" onClick={() => props.setTempFormat("fahrenheit", 1)}>ºF</button>
             </div>
-        
-        <Forecast 
-        forecast={props.data.forecast}
-        theme={props.theme}
-        tempFormat={props.tempFormat}
-        />
-        <Highlights 
-        weatherDetails={props.data.current}/>
+            <Forecast 
+            forecast={props.data.forecast}
+            theme={props.theme}
+            tempFormat={props.tempFormat}
+            />
+            <Highlights 
+            weatherDetails={props.data.current}/>
+            <footer className="footer__sign">
+                <p className="sign">created by <a href="http://hitmaizer.github.io" target="_blank" rel="noreferrer"><u><b>Jose Alves</b></u></a> - devChallenges.io</p> 
+            </footer>
         </div>
     )
 }
