@@ -1,10 +1,13 @@
 .drawer__wrapper {
-    min-height: 100vh;
+    min-height: 100%;
     min-width: 459px;
     background-color: $darkBlue;
     padding: 32px;
     font-family: $raleway;
     overflow-y: auto;
+    @include respond-below(md) {
+      min-width: 100vw;
+    }
 }
 
 .search__container {
