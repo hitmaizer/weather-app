@@ -43,7 +43,7 @@ export default function App() {
         fetchData()
     }, [])
 
-    console.log(data)
+    //console.log(data)
         
     function toggleDrawer(open) {
               return function (event) {
@@ -54,58 +54,32 @@ export default function App() {
     function getCurrentPosition(){
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function(position) {
+                setLoading(true)
                 axios
-                .get(
-                    "https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/search",
-                    {
-                        params: {
-                            lattlong: `${position.coords.latitude},${position.coords.longitude}`,
-                        },
-                    }
-                )
+                .get(`https://api.weatherapi.com/v1/forecast.json?key=ab6b1356bf884054be9193112222402&q=${position.coords.latitude},${position.coords.longitude}&days=7&aqi=no&alerts=no`)
                 .then((response) => {
-                    setCurrentLocation(response.data[0])
-                    
+                    setData(response.data)    
                 })
                 .catch(function (error) {
-                    console.log("I am not running");
-                    
-                });                                
+                    setError(error) 
+                    console.log(error)
+                })
+                .finally(setLoading(false))                                
             })
         }
-        getWeatherData()
     }
     
     function getWeatherData() {
-        axios
-        .get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${currentLocation.woeid}/`)
         
-        .then((response) => {
-            setWeatherData(response.data.consolidated_weather)
-        })
-        .catch(function (error) {
-            console.log("I am not running");
-        })
         
     }
 
-    function convertToFahrenheit(num) {
-        const convertedNumber = (num * 1.8) + 32
-        return convertedNumber
-    }
-    
-    function convertToCelsius(num) {
-        const convertedNumber = (num - 32) * .5556
-        return convertedNumber
-    }
 
-    function toggleTempFormat(id, state) {
-        
+    function toggleTempFormat(id, state) {        
         //Styling Btn
         const selectedElement = document.getElementById(id)
         const groupElements = document.querySelectorAll('.selected')
-        if (selectedElement.classList.contains('selected')) {
-            
+        if (selectedElement.classList.contains('selected')) {            
         } else {
             groupElements.forEach(e => {
                 if(e.classList.contains('selected')) {
@@ -113,45 +87,16 @@ export default function App() {
                 }
             })
             selectedElement.classList.add('selected')
-        }
-        
-        setTempFormat(state)
-        
+        }        
+        setTempFormat(state)        
     }
 
     function handlePopularCities(string) {
-        setLocation(string)
-        
+        setLocation(string)        
     }
     
     function getWeatherFromLocation() {
-        //search da location
-        async function fetchData() {
-            const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/search/?query=${location}`)
-            //pegar no woeid que retorna 
-            .then(response => {
-                setCurrentLocation(response.data[0], currentLocation)
-            })
-            .catch(function (error) {
-                console.log("I am not running");
-            })
-            return request
-        }
-        fetchData()
-        //fazer fetch com o woeid
-        async function fetchDataWithWoeid() {
-            const request = await axios.get(`https://afternoon-ridge-35420.herokuapp.com/https://www.metaweather.com/api/location/${currentLocation.woeid}/`)
         
-            //set weatherData
-            .then((response) => {
-                setWeatherData(response.data.consolidated_weather, weatherData)
-            })
-            .catch(function (error) {
-                console.log("I am not running");
-            })
-            return request
-        }
-        fetchDataWithWoeid()
         
     }
 
@@ -174,6 +119,7 @@ export default function App() {
                             data={data}
                             theme={Theme}
                             tempFormat={tempFormat}
+                            currentPosition={getCurrentPosition}
                             />
                             <Drawer 
                             anchor={'left'}
@@ -186,7 +132,6 @@ export default function App() {
                             
                             <Main 
                             data={data}
-                            forescast={data.forecast}
                             theme={Theme}
                             tempFormat={tempFormat}
                             setTempFormat={(state, id) => toggleTempFormat(state, id)}
