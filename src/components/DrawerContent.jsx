@@ -26,7 +26,9 @@ export default function DrawerContent(props) {
 
             <div className="search__results flex-col">
                 <h1 className="result__title highlights__title">Popular Cities</h1>
-                <PopularCities handlePopularCities={(string) => props.handlePopularCities(string)} />
+                <PopularCities 
+                handlePopularCities={(string) => props.handlePopularCities(string)} 
+                />
             </div>
         </div>
     )
