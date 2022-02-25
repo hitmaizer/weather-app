@@ -12,14 +12,12 @@ import SkeletonMain from './skeletons/SkeletonMain';
 
 export default function App() {
     const [state, setState] = React.useState(false)
-    const [weatherData, setWeatherData] = React.useState()
     const [location, setLocation] = React.useState("lisbon")
-    const [currentLocation, setCurrentLocation] = React.useState([])
     const [tempFormat, setTempFormat] = React.useState(0)
-    const [initialLocation, setInitialLocation] = React.useState([])
     const [data, setData] = React.useState(null)
     const [loading, setLoading] = React.useState(false)
     const [error, setError] = React.useState(null)
+    const [typedLocation, setTypedLocation] = React.useState("")
     
     
     React.useEffect(() => {
@@ -41,9 +39,7 @@ export default function App() {
             return request
         }
         fetchData()
-    }, [])
-
-    //console.log(data)
+    }, [location])
         
     function toggleDrawer(open) {
               return function (event) {
@@ -69,12 +65,6 @@ export default function App() {
         }
     }
     
-    function getWeatherData() {
-        
-        
-    }
-
-
     function toggleTempFormat(id, state) {        
         //Styling Btn
         const selectedElement = document.getElementById(id)
@@ -94,14 +84,18 @@ export default function App() {
     function handlePopularCities(string) {
         setLocation(string)        
     }
-    
-    function getWeatherFromLocation() {
-        
+
+    function handleTyping() {
+        // keep track of input event.target.value 
+        // store it in a state 
         
     }
 
-   
-
+    function searchTypedLocation () {
+        // on search click set location to value
+        setLocation(typedLocation)
+    }
+    
     return (
         <div className="page__wrapper flex-row">
             <ThemeProvider theme={Theme}>
@@ -127,7 +121,9 @@ export default function App() {
                             onClose={toggleDrawer(false)}
                             
                             >
-                                <DrawerContent />
+                                <DrawerContent 
+                                handlePopularCities={(string) => handlePopularCities(string)}
+                                />
                             </Drawer>
                             
                             <Main 
