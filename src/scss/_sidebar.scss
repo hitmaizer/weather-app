@@ -6,6 +6,10 @@
     min-width: 459px;
     gap: 48px;
 
+    @include respond-below(sm) {
+      min-width: 100%;
+    }
+
     &::before {
         content: '';
         position: absolute;
