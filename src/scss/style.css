@@ -204,8 +204,8 @@
 .forecast__wrapper {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[5];
-      grid-template-columns: repeat(5, 1fr);
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
@@ -232,12 +232,12 @@
 
 .daily__img {
   max-width: 100%;
-  width: 75px;
+  width: 90px;
   margin-bottom: 16px;
 }
 
 .daily__minmax {
-  gap: 16px;
+  gap: 64px;
 }
 
 .minmax {
