@@ -17,3 +17,9 @@ ul {
     list-style-type: none;
     padding: 0;
 }
+
+.page__wrapper {
+    @include respond-below(md) {
+      flex-direction: column;
+    }
+}
