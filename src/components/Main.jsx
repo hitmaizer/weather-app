@@ -18,7 +18,7 @@ export default function Main(props) {
             <Highlights 
             weatherDetails={props.data.current}/>
             <footer className="footer__sign">
-                <p className="sign">created by <a href="http://hitmaizer.github.io" target="_blank" rel="noreferrer"><u><b>Jose Alves</b></u></a> - devChallenges.io</p> 
+                <p className="sign">created by <a href="http://github.com/hitmaizer" target="_blank" rel="noreferrer"><u><b>Jose Alves</b></u></a> - devChallenges.io</p> 
             </footer>
         </div>
     )
