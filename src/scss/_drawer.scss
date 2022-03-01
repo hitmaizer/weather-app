@@ -8,6 +8,10 @@
     @include respond-below(md) {
       min-width: 100vw;
     }
+
+    @include respond-below(sm) {
+      padding: 16px;
+    }
 }
 
 .search__container {
@@ -30,6 +34,9 @@
         line-height: 19px;
         text-indent: 48px;
     }
+    @include respond-below(sm) {
+        width: 82%;
+    }
 }
 
 .search__icon {
@@ -38,12 +45,13 @@
     left: 10%;
 }
 
-.search__btn {
-    padding: 16px 24px;
-    border: none;
-    background-color: $lightBlue;
-    color: $offGray;
+.drawer__closeicon {
+    color: $offWhite;
+    display: none!important;
     cursor: pointer;
+    @include respond-below(md) {
+      display: inline-block!important;
+    }
 }
 
 .search__results {
