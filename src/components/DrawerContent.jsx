@@ -11,7 +11,7 @@ export default function DrawerContent(props) {
             <div className="search__container flex-row">
                 <input type="text" className="search__input" placeholder="search location" onChange={(event) => props.handleFilter(event)}/>
                 <SearchOutline size="24px" className="search__icon"/>
-                <Close size="24px" />
+                <Close size="32px" className="drawer__closeicon" onClick={props.handleClose} />
             </div>
             {props.filteredData !== [] && 
                 <div className="search__results">
