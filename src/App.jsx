@@ -124,6 +124,10 @@ export default function App() {
         setLocation(string)
         setFilteredData([])
     }
+
+    function handleClose() {
+        setState(false)
+    }
     
     return (
         <div className="page__wrapper flex-row">
@@ -157,6 +161,7 @@ export default function App() {
                                 searchTypedLocation={(string) =>searchTypedLocation(string)}
                                 items={items}
                                 setItems={setItems}
+                                handleClose={handleClose}
                                 />
                             </Drawer>
                             
