@@ -91,7 +91,8 @@ export default function App() {
     }
 
     function handlePopularCities(string) {
-        setLocation(string)        
+        setLocation(string)    
+        setState(false)    
     }
 
     function handleFilter(event) {
