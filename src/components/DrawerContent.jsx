@@ -3,6 +3,7 @@ import { SearchOutline } from '@styled-icons/evaicons-outline/SearchOutline'
 import { LocationPin } from '@styled-icons/entypo/LocationPin';
 import { nanoid } from 'nanoid'
 import PopularCities from '../elements/PopularCities'
+import { Close } from '@styled-icons/evaicons-solid/Close'
 
 export default function DrawerContent(props) {
     return (
@@ -10,7 +11,7 @@ export default function DrawerContent(props) {
             <div className="search__container flex-row">
                 <input type="text" className="search__input" placeholder="search location" onChange={(event) => props.handleFilter(event)}/>
                 <SearchOutline size="24px" className="search__icon"/>
-                
+                <Close size="24px" />
             </div>
             {props.filteredData !== [] && 
                 <div className="search__results">
