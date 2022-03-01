@@ -123,6 +123,7 @@ export default function App() {
     function searchTypedLocation(string) {
         setLocation(string)
         setFilteredData([])
+        setState(false)
     }
 
     function handleClose() {
