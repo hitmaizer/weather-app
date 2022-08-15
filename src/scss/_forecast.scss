@@ -1,54 +1,51 @@
 .forecast__wrapper {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    @include respond-below(sm) {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  @include respond-below(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 .forecast__card {
-    place-items: center;
-    padding: 16px;
-    gap: 16px;
-    min-width: 150px;
+  place-items: center;
+  padding: 16px;
+  gap: 16px;
+  min-width: 150px;
 }
 
 .daily__date {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: $offGray;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: $offGray;
 }
 
 .img__container {
-    min-height: 120px;
-    justify-content: center;
+  min-height: 120px;
+  justify-content: center;
 }
 
 .daily__img {
-    max-width: 100%;
-    width: 90px;
-    margin-bottom: 16px;
+  max-width: 100%;
+  width: 90px;
+  margin-bottom: 16px;
 }
 
 .daily__minmax {
-    gap: 32px;
+  gap: 32px;
 }
 
 .minmax {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
 }
 
-
 .min {
-    color: $darkGray;
+  color: $darkGray;
 }
 
 .max {
-    color: $offGray;
+  color: $offGray;
 }

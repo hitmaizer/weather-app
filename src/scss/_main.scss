@@ -1,46 +1,46 @@
 .main__wrapper {
-    width: 100%;
-    background-color: $grayBlue;
-    font-family: $raleway;
-    padding: 32px;
+  width: 100%;
+  background-color: $grayBlue;
+  font-family: $raleway;
+  padding: 32px;
 }
 
 .toggle__type {
-    place-content: flex-end;
-    gap: 12px;
-    margin-bottom: 32px;
+  place-content: flex-end;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
 .toggle__btn {
-    border: none;
-    background-color: $purpleBlue;
-    border-radius: 50%;
-    height: 40px;
-    width: 40px;
-    font-family: $raleway;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: center;
-    cursor: pointer;
+  border: none;
+  background-color: $purpleBlue;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  font-family: $raleway;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  cursor: pointer;
 }
 
 .selected {
-    background-color: $lightBlue;
-    color: $offGray;
+  background-color: $lightBlue;
+  color: $offGray;
 }
 
 .footer__sign {
-    width: 100%;
-    font-family: $montserrat;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
+  width: 100%;
+  font-family: $montserrat;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: $darkGray;
+  margin-top: 32px;
+  a {
+    text-decoration: none;
     color: $darkGray;
-    margin-top: 32px;
-    a {
-        text-decoration: none;
-        color: $darkGray;
-    }
+  }
 }

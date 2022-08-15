@@ -1,105 +1,102 @@
 .drawer__wrapper {
-    min-height: 100%;
-    min-width: 459px;
-    background-color: $darkBlue;
-    padding: 32px;
-    font-family: $raleway;
-    overflow-y: auto;
-    @include respond-below(md) {
-      min-width: 100vw;
-    }
+  min-height: 100%;
+  min-width: 459px;
+  background-color: $darkBlue;
+  padding: 32px;
+  font-family: $raleway;
+  overflow-y: auto;
+  @include respond-below(md) {
+    min-width: 100vw;
+  }
 
-    @include respond-below(sm) {
-      padding: 16px;
-    }
+  @include respond-below(sm) {
+    padding: 16px;
+  }
 }
 
 .search__container {
-    gap: 12px;
-    align-items: center;
+  gap: 12px;
+  align-items: center;
 }
 
 .search__input {
-    border: solid 1px $offGray;
-    width: 100%;
-    background-color: transparent;
-    height: 48px;
+  border: solid 1px $offGray;
+  width: 100%;
+  background-color: transparent;
+  height: 48px;
+  text-indent: 48px;
+  color: $white;
+  position: relative;
+  &::placeholder {
+    color: $offWhite;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 19px;
     text-indent: 48px;
-    color: $white;
-    position: relative;
-    &::placeholder {
-        color: $offWhite;
-        font-weight: 500;
-        font-size: 16px;
-        line-height: 19px;
-        text-indent: 48px;
-    }
-    @include respond-below(sm) {
-        width: 82%;
-    }
+  }
+  @include respond-below(sm) {
+    width: 82%;
+  }
 }
 
 .search__icon {
-    color: $offWhite;
-    position: absolute;
-    left: 10%;
+  color: $offWhite;
+  position: absolute;
+  left: 10%;
 }
 
 .drawer__closeicon {
-    color: $offWhite;
-    display: none!important;
-    cursor: pointer;
-    @include respond-below(md) {
-      display: inline-block!important;
-    }
+  color: $offWhite;
+  display: none !important;
+  cursor: pointer;
+  @include respond-below(md) {
+    display: inline-block !important;
+  }
 }
 
 .search__results {
-    width: 367px;
-    gap: 8px;
-    
-    
+  width: 367px;
+  gap: 8px;
 }
 
 .result__item {
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    padding: 12px 24px;
-    &:hover {
-        border: solid 1px $offWhite;
-    }
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding: 12px 24px;
+  &:hover {
+    border: solid 1px $offWhite;
+  }
 }
 
 .result__text {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: $offGray;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: $offGray;
 }
 
 .result__icon {
-    color: $offGray;
-    
+  color: $offGray;
 }
 
 .result__textinput {
-    max-width: 25ch;
-    text-align: right;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 19px;
-    color: $offGray;
+  max-width: 25ch;
+  text-align: right;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: $offGray;
 }
 
 .result__liked {
-    align-items: center;
-    gap: 16px;
-    width: 85%;
-    justify-content: space-between;
-    pointer-events: none;
+  align-items: center;
+  gap: 16px;
+  width: 85%;
+  justify-content: space-between;
+  pointer-events: none;
 }
 
 .result__heart {
-    place-self: flex-end;
+  place-self: flex-end;
 }
